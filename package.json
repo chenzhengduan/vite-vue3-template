@@ -1,0 +1,90 @@
+{
+  "name": "ai-academic",
+  "type": "module",
+  "version": "3.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.6.5",
+  "author": "Chad <code.duan@gmail.com>",
+  "scripts": {
+    "prepare": "npx simple-git-hooks",
+    "del": "sh delete-ts.sh",
+    "serve": "cross-env DEBUG=vite:transform vite",
+    "build:test": "vite build --mode test",
+    "build:staging": "vite build --mode staging",
+    "build": "vite build",
+    "start": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:ts": "vue-tsc --noEmit",
+    "lint:css": "stylelint '**/*.{css,scss}' --fix"
+  },
+  "dependencies": {
+    "@lincy/utils": "^0.6.2",
+    "@unhead/vue": "^2.0.0",
+    "@vueuse/core": "^13.0.0",
+    "axios": "^1.8.4",
+    "default-passive-events": "^2.0.0",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "pinia": "^3.0.1",
+    "qs": "^6.14.0",
+    "store2": "^2.14.4",
+    "unhead": "^2.0.0",
+    "vant": "^4.9.18",
+    "vue": "^3.5.13",
+    "vue-cropper": "^1.1.4",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@lincy/eslint-config": "^5.5.2",
+    "@lincy/stylelint-config": "^2.0.1",
+    "@lincy/unocss-base-config": "^2.2.1",
+    "@types/lodash": "^4.17.16",
+    "@types/node": "^22.13.13",
+    "@types/qs": "^6.9.18",
+    "@unocss/eslint-plugin": "^65.5.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "@vue-macros/volar": "^0.30.15",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.23.0",
+    "lint-staged": "^15.5.0",
+    "mockjs": "^1.1.0",
+    "postcss": "^8.5.3",
+    "postcss-px-to-viewport-8-plugin": "^1.2.5",
+    "sass": "^1.86.0",
+    "simple-git-hooks": "^2.12.1",
+    "typescript": "^5.8.2",
+    "unocss": "^65.5.0",
+    "unplugin-auto-import": "^19.1.1",
+    "unplugin-icons": "^22.1.0",
+    "unplugin-vue-components": "^28.4.1",
+    "unplugin-vue-macros": "^2.14.5",
+    "url-search-params-polyfill": "^8.2.5",
+    "vite": "^6.2.3",
+    "vite-plugin-inspect": "^11.0.0",
+    "vite-plugin-mock": "^3.0.2",
+    "vite-plugin-progress": "^0.0.7",
+    "vue-tsc": "^2.2.8"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "rollup",
+        "postcss",
+        "esbuild",
+        "prettier"
+      ]
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{[jt]s?(x),vue,md}": [
+      "eslint --fix"
+    ],
+    "*.{css,scss}": "stylelint --fix --allow-empty-input"
+  }
+}
